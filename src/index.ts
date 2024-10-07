@@ -3,12 +3,12 @@
  */
 // import * as dotenv from "dotenv";
 const dotenv = require("dotenv")
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
-import { itemsRouter } from "./items/items.router";
-import { errorHandler } from "./middleware/error.middleware";
-import { notFoundhandler } from "./middleware/not-found.middleware";
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const { itemsRouter } = require("./items/items.router");
+const { errorHandler } = require("./middleware/error.middleware");
+const { notFoundhandler } = require("./middleware/not-found.middleware");
 
 dotenv.config()
 
