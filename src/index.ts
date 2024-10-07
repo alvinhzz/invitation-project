@@ -19,7 +19,7 @@ if (!process.env.PORT) {
     process.exit(1)
 }
 
-const PORT:number = parseInt(process.env.PORT as string, 10)
+const PORT:number = parseInt(process.env.PORT as string, 10) || 7000
 
 const app = express()
 
@@ -27,8 +27,15 @@ const app = express()
  *  App Configuration
  */
 
+const corsOptions = {
+    origin: ["http://localhost:5173", "https://secret-02dcff92c442.vercel.app/"],
+    method: ['GET', 'POST'],
+    credentials: true,
+    optionSuccessStatus: 200,
+}
+
 app.use(helmet())
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use("/api/guest/comment", itemsRouter)
 
