@@ -29,7 +29,7 @@ const app = express()
  */
 
 const corsOptions = {
-    origin: ["http://localhost:5173", "https://secret-02dcff92c442.vercel.app/"],
+    origin: ["https://secret-02dcff92c442.vercel.app"],
     method: ['GET', 'POST'],
     credentials: true,
     optionSuccessStatus: 200,
