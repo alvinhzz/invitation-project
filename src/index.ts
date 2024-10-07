@@ -1,7 +1,8 @@
 /**
  * Required External Modules
  */
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
+const dotenv = require("dotenv")
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
