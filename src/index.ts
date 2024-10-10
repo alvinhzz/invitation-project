@@ -1,14 +1,13 @@
 /**
  * Required External Modules
  */
-// import * as dotenv from "dotenv";
-const dotenv = require("dotenv")
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const { itemsRouter } = require("./items/items.router");
-const { errorHandler } = require("./middleware/error.middleware");
-const { notFoundhandler } = require("./middleware/not-found.middleware");
+import * as dotenv from "dotenv";
+import express from "express";
+import  cors from "cors";
+import helmet from "helmet";
+import { itemsRouter } from "./items/items.router";
+import { errorHandler } from "./middleware/error.middleware";
+import { notFoundhandler } from "./middleware/not-found.middleware";
 
 dotenv.config()
 
@@ -20,7 +19,7 @@ if (!process.env.PORT) {
     process.exit(1)
 }
 
-const PORT:number = parseInt(process.env.PORT as string, 10) || 7000
+const PORT:number = parseInt(process.env.PORT as string, 10) || 7831
 
 const app = express()
 
@@ -29,7 +28,7 @@ const app = express()
  */
 
 const corsOptions = {
-    origin: ["https://secret-02dcff92c442.vercel.app"],
+    origin: process.env.CORS_ORIGIN,
     method: ['GET', 'POST'],
     credentials: true,
     optionSuccessStatus: 200,
